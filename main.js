@@ -2,16 +2,50 @@
 
 // 1. Define a function called "divideByTwo". It should accept one parameter called "number".
 //    The function should divide the number by two and output the answer.
+var divideByTwo = function(number) {
+	var number = number / 2;
+	return number;
+}
+
+divideByTwo(4);
 
 // 2. Define a function called "greeting". It should accept two parameters, which will be names.
 //    The function should output the a greeting to both people.
+var greeting = function(name1, name2) {
+	return 'Hello ' + name1 +' and ' + name2 ;
+}
+
+greeting('Bill', 'Ted');
 
 // 3. You use Amazon Subscribe & Save to have six cans of cashews automatically sent to you each month, but the price keeps changing.
 //    Write a function that takes the price per unit and calculates the total for you each month.
+var amazonCashews = function(price) {
+	var price = price * 6;
+	return price; 
+}
+
+amazonCashews(8);
 
 // 4. Write a function that accepts the following array and separates the people into two teams.
 //    No names next to eachother in the array should be on the same team.
-      teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "Weird guy in the back", "Gary", "Carol", "Hipster Tim", "Janet"]
+teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "Weird guy in the back", "Gary", "Carol", "Hipster Tim", "Janet"]
+
+var team1 = [];
+var team2 = [];
+var splitTeams = function(teammates) {
+	for (i = 0; i < teammates.length; i++) {
+		if (i % 2 === 0) {
+			team1.push(teammates[i]);
+		} else {
+			team2.push(teammates[i]);
+		}
+	}	
+	console.log(team1, team2);
+}
+
+splitTeams(teammates);
+// teammates2 = ['Jon', 'Jose', 'Bill', 'Bob', 'Chuck', 'Jen'];
+// splitTeams(teammates2);
 
 // 5. Define a function called "quarter". It accepts one parameter called "number".
 //    The function will return a value which is one quarter of the number provided.
@@ -24,6 +58,18 @@
 //                      print out a statement saying the number is even
 //                  else
 //                      print out a statement saying the number is odd
+
+var quarter = function(number) {
+	var number = number / 4;
+		if (number % 2 === 0) {
+			console.log('The number is even');
+		} else {
+			console.log('The number is odd');
+		} 
+	return number;
+}
+
+quarter(100);
 
 // 6. Define functions called "area" and "perimeter". They should both accept two parameters and calculate the area and perimeter of a rectangle.
 
