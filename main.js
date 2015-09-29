@@ -72,13 +72,45 @@ var quarter = function(number) {
 quarter(100);
 
 // 6. Define functions called "area" and "perimeter". They should both accept two parameters and calculate the area and perimeter of a rectangle.
+var area = function(num1, num2) {
+	var totalArea = num1 * num2;
+	return totalArea;
+}
+
+area(3, 5);
+
+var perimeter = function(num1, num2) {
+	var totalPerimeter = 2 * (num1 + num2);
+	return totalPerimeter;
+}
+
+perimeter(3, 5);
 
 // 7. Write a function called "sleepings", it should accept one parameter, an integer called "hours".
 //    Write a conditional statement inside of the function. If the number of hours is more than 8, print a statement to the console about getting enough rest.
 //    If the number of hours is less than 8, print a statement recommending the user get more shut eye.
+var sleepings = function(hours) {
+	if (hours > 8) {
+		console.log(hours);
+		console.log('Congrats on ' + hours + ' of sleep.');
+	} else {
+		console.log('Maybe you should shoot for more than ' + hours ' of sleep.');
+	}
+}
+
+sleepings(6);
 
 // 8. Prompt a user to enter a six digit number. Write a function that reverses the number.
 //    (Hint, you will have to turn the integer into a string before you can reverse it.)
+var enterNumber = prompt('Please enter a six digit number').toString();
+var reverseString = function(input) {
+	var o = [];
+	for (var i = input.length - 1, j = 0; i >= 0; i--, j++)
+		o[j] = input[i];
+  	return o.join('');
+}
+
+reverseString(enterNumber);
 
 // 9. Within the fuction you wrote in #7, write a conditional statement that checks to ensure the user entered a six digit integer.
 //    If they have not entered a six digit integer, give them a message about being a failure.
