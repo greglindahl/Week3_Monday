@@ -114,12 +114,37 @@ reverseString(enterNumber);
 
 // 9. Within the fuction you wrote in #7, write a conditional statement that checks to ensure the user entered a six digit integer.
 //    If they have not entered a six digit integer, give them a message about being a failure.
+var enterNumber = prompt('Please enter a six digit number').toString();
+var reverseString = function(input) {
+	var o = [];
+	for (var i = input.length - 1, j = 0; i >= 0; i--, j++)
+		if (input.length <=6) {
+			alert('I asked for 6 digits dopey.  You are a failure');
+		}
+		o[j] = input[i];
+  	return o.join('');
+}
+
+reverseString(enterNumber);
 
 // 10. You've finally gotten around to counting the change in your piggy bank. Write a function that accepts four parameters (quarters, dimes, nickels, and pennies).
 //     The function should take each number of coins and multiply it times each coin's value.
 //     Finally, it should return the total amount of change you have in the following format: "$32.77"
+var piggyBank = function(quarters, dimes, nickels, pennies) {
+	var totalChange = (quarters * .25) + (dimes * .10) + (nickels * .05) + (pennies * .01);
+	totalChange = totalChange.toFixed(2);
+	return totalChange;
+}
+
+piggyBank(4, 3, 2, 1);
 
 // 11. Develop a function that determines a person's age by prompting them for their birth year.
+var personsAge = function(birthYear) {
+	var age = 2015 - birthYear;
+	return age;
+}
+
+personsAge(1978);
 
 // 12. Write a function that takes a year and reports whether or not it is a leap year.
 //     Remember, a leap year occurs:
@@ -127,6 +152,17 @@ reverseString(enterNumber);
 //        Except every year that is evenly divisible by 100
 //        Unless the year is also evenly divisible by 400
 //        For example, 1997 is not a leap year, but 1996 is.  1900 is not a leapyear, but 2000 is
+var leapYear = function(year) {
+	if (year % 4 === 0 || year % 400 === 0) {
+		console.log(year + ' is a leap year.');
+	} else if (year % 100 === 0) {
+		console.log(year + ' is close but no cigar.');
+	} else {
+		console.log(year + ' is not a leap year.');
+	}
+}
+
+leapYear(1997);
 
 // 13. Develop a function that cleans up a phone number entered by a user.
 //     The rules are as follows:
@@ -135,12 +171,45 @@ reverseString(enterNumber);
 //        If the phone number is 11 digits and the first number is 1, trim the 1 and use the last 10 digits
 //        If the phone number is 11 digits and the first number is not 1, then it is a bad number
 //        If the phone number is more than 11 digits assume that it is a bad number
+var phoneNumberCleanUp = function(phoneNumber) {
+	if (phoneNumber.length === 10) {
+		console.log(phoneNumber + ' is a valid number.');
+	} else if (phoneNumber.length === 11) {
+		var firstDigit = phoneNumber.charAt(0)
+			if (firstDigit != '1') {
+				console.log(phoneNumber + ' is a bad number.');
+			} else {
+				phoneNumber = phoneNumber.slice(1, 10);
+				console.log(phoneNumber + ' is a valid number.');
+			}
+	} else {
+		console.log(phoneNumber + ' is not a valid number.');
+	}
+	return phoneNumber;
+}
+
+phoneNumberCleanUp('1234567898');
 
 // 14. Create a function that determines whether a parameter is a number or not (Hint: google "isNan")
 //     Iterate over the elements in the following array to determine if each is a number.
-       arrayOfAllTheThings = ["one", 23, {thingsWhalesLove: "beaches"}, "six hundred", 33, 6834, "5,435"]
+var arrayOfAllTheThings = ["one", 23, {thingsWhalesLove: "beaches"}, "six hundred", 33, 6834, "5,435"]
+var checkNumberStatus = function(x) {
+	for (var i = 0; i < x.length; i++) {
+		var item = x[i];
+		if (isNaN(item)) {
+			console.log(item + ' Is not a number');
+		} else {
+			console.log(item + ' Is a number');
+		}
+	}
+}
+
+checkNumberStatus(arrayOfAllTheThings);
 
 // 15. Create a die rolling function that accepts two parameters (the two six-sided dice) and outputs an array of the two values rolled.
+var diceRoll = function(dice1, dice2) {
+	roll = [];
+}
 
 // 16. Create another fuction called "whichSide". It will accept the array from above as it's only parameter.
 //     This function will mimic a Monopoly board. Start playerOne at the Go space (0) and add the two values from your die array to determine
