@@ -207,14 +207,49 @@ var checkNumberStatus = function(x) {
 checkNumberStatus(arrayOfAllTheThings);
 
 // 15. Create a die rolling function that accepts two parameters (the two six-sided dice) and outputs an array of the two values rolled.
+var dice1 = Math.floor(Math.random() * 6) + 1;
+var dice2 = Math.floor(Math.random() * 6) + 1;
+
 var diceRoll = function(dice1, dice2) {
-	roll = [];
+	var roll = [];
+	roll.push(dice1, dice2);
+	return roll;
 }
+
+diceRoll(dice1, dice2);
+
 
 // 16. Create another fuction called "whichSide". It will accept the array from above as it's only parameter.
 //     This function will mimic a Monopoly board. Start playerOne at the Go space (0) and add the two values from your die array to determine
 //     how many spaces the player will move. Log to the console which side of the board the player is on.
 //     Hint: each side has 11 spaces. You can call the sides of the board: north, east, south, west or top, right, bottom, left.
+
+var dice1 = Math.floor(Math.random() * 6) + 1;
+var dice2 = Math.floor(Math.random() * 6) + 1;
+
+var diceRollAdd = function(dice1, dice2) {
+	var roll = dice1 + dice2
+	return roll;
+}
+
+diceRollAdd(dice1, dice2);
+
+var whichSide = function(roll) {
+	var playerOne = 0;
+	playerOne = playerOne + roll;
+	if (playerOne >= 0 && playerOne <= 10) {
+		console.log(playerOne + ' is on the north side of the board.');
+	} else if (playerOne >= 11 && playerOne <= 20) {
+		console.log(playerOne + ' is on the east side of the board.');
+	} else if (playerOne >= 21 && playerOne <= 30) {
+		console.log(playerOne + ' is on the south side of the board.');
+	} else {
+		console.log(playerOne + ' is on the west side of the board.');
+	}
+}
+
+whichSide(diceRollAdd(dice1, dice2));
+//TODO Figure out how to iterate upon playerOne spot on board and number 17
 
 // 17. Using the game above, use the same function(s) and add additional code to determine if the player is on a corner spot.
 //     Log to the console which corner the player is located.
