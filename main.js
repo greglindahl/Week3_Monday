@@ -102,12 +102,9 @@ sleepings(6);
 
 // 8. Prompt a user to enter a six digit number. Write a function that reverses the number.
 //    (Hint, you will have to turn the integer into a string before you can reverse it.)
-var enterNumber = prompt('Please enter a six digit number').toString();
+var enterNumber = prompt('Please enter a six digit number');
 var reverseString = function(input) {
-	var o = [];
-	for (var i = input.length - 1, j = 0; i >= 0; i--, j++)
-		o[j] = input[i];
-  	return o.join('');
+	return input.split('').reverse().join('');
 }
 
 reverseString(enterNumber);
@@ -152,11 +149,16 @@ personsAge(1978);
 //        Except every year that is evenly divisible by 100
 //        Unless the year is also evenly divisible by 400
 //        For example, 1997 is not a leap year, but 1996 is.  1900 is not a leapyear, but 2000 is
+
 var leapYear = function(year) {
-	if (year % 4 === 0 || year % 400 === 0) {
-		console.log(year + ' is a leap year.');
-	} else if (year % 100 === 0) {
-		console.log(year + ' is close but no cigar.');
+	if (year % 4 === 0) {
+		if (year % 100 !== 0 || year % 400 === 0){
+			console.log(year + ' is a leap year.');
+		} else if (year % 100 === 0) {
+			console.log(year + ' is not a leap year.');
+		} else {
+			console.log(year + ' is a leap year.');
+		} 
 	} else {
 		console.log(year + ' is not a leap year.');
 	}
@@ -224,18 +226,23 @@ diceRoll(dice1, dice2);
 //     how many spaces the player will move. Log to the console which side of the board the player is on.
 //     Hint: each side has 11 spaces. You can call the sides of the board: north, east, south, west or top, right, bottom, left.
 
-var dice1 = Math.floor(Math.random() * 6) + 1;
-var dice2 = Math.floor(Math.random() * 6) + 1;
+var diceRoll = function() {
+	var dice1 = Math.floor(Math.random() * 6) + 1;
+	var dice2 = Math.floor(Math.random() * 6) + 1;
+	return [dice1, dice2];
+}
 
-var diceRollAdd = function(dice1, dice2) {
-	var roll = dice1 + dice2
+
+
+var diceRollAdd = function(diceArray) {
+	var roll = diceArray[0] + diceArray[1];
 	return roll;
 }
 
-diceRollAdd(dice1, dice2);
+var playerOne = 0;
 
 var whichSide = function(roll) {
-	var playerOne = 0;
+	console.log(playerOne);
 	playerOne = playerOne + roll;
 	if (playerOne >= 0 && playerOne <= 10) {
 		console.log(playerOne + ' is on the north side of the board.');
@@ -246,9 +253,15 @@ var whichSide = function(roll) {
 	} else {
 		console.log(playerOne + ' is on the west side of the board.');
 	}
+
 }
 
-whichSide(diceRollAdd(dice1, dice2));
+whichSide(diceRollAdd(diceRoll()));
+whichSide(diceRollAdd(diceRoll()));
+whichSide(diceRollAdd(diceRoll()));
+whichSide(diceRollAdd(diceRoll()));
+
+
 //TODO Figure out how to iterate upon playerOne spot on board and number 17
 
 // 17. Using the game above, use the same function(s) and add additional code to determine if the player is on a corner spot.
